@@ -1,0 +1,202 @@
+<html>
+<head>
+<title>Sci-Fi Space Scene</title>
+<style>
+  body {
+      background-image: url('space.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-color: #000;
+      color: white;
+  }
+  .content {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 50px auto;
+    border-radius: 8px;
+  }
+  h1{
+    text-align: center;
+    font-family: fantasy;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 65px;
+  }
+  .references{
+    text-align: center;
+    border-radius: 8px;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    word-spacing: 5px;
+  }
+
+  .row{
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    margin: 50px;
+  }
+  .text-side{
+    flex: 1;
+    font-family: sans-serif;
+    text-align: justify;
+    font-weight: 500;
+    font-size: 30px;
+  }
+
+  .image-side{
+    flex: 0 0 auto;
+    max-width: 65%;
+  }
+
+
+  .square-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+  .square {
+  flex: 0 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+  .square img {
+  max-width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+h3{
+  text-align: center;
+  border-radius: 8px;
+  font-family: fantasy;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 34px;
+  word-spacing: 3px;
+}
+
+</style>
+</head>
+<body>
+
+<h1 style="margin-top: 45px;">Final Project - Sci-Fi Space Scene</h1>
+<div class="row">
+<p class="text-side">
+    Spring Quarter 2025 - CSC - 471<br><br>
+    Instructor: Dr. Fahim H. Khan<br><br>
+    Created By: Alexis Gonzalez-Haro<br><br>
+    About My Project:<br><br>
+    My project is set in outer space, on an extraterrestrial moon with a sci-fi theme. On this moon that you roam, there are crystals of unknown nature, some freezing and others radiating unkown particles. 
+    From the moon you can gaze into the surrounding void of space and see several neighboring planets of different kinds. Not only are there planets, but spacecrafts such as a futuristic space station,
+    a Dyson sphere, and a NASA NEAR spacecraft. Inspiration for this idea came from the many horror/sci-fi films I've watched over the years that unfold in the vast emptiness of space. My scene, however, is aimed more towards being
+    a sight-seeing experience and a demonstration of my skills/techniques learned in this course rather than being eerie/unnerving.
+</p>
+<img class="image-side" width="720" alt="example image" src="Scene.png">
+</div>
+
+<h1 style="margin-top: 35px;">Graphics Technologies</h1>
+
+<div class="square-container">
+  <div class="square">
+    <h3>Phong Shading & Diffuse Shading</h3>
+    <video class="Shading" width="70%" autoplay muted loop playsinline>
+      <source src="Phong_Shading.mp4" type="video/mp4">
+    </video>
+    <p>I used Phong shading for models without textures and diffuse shading (DC coefficient) for textured models. As shown above, the light moves along with the camera and produces reflections on
+       the crystals. The lunar surface also fades in brightness the farther it is from the camera, creating this nice soft lantern-like glow. 
+    </p>
+  </div>
+  <div class="square">
+    <h3>Bezier Curve & Splines</h3>
+    <video class="Bezier_curve" width="70%" autoplay muted loop playsinline>
+      <source src="Bezier_curve.mp4" type="video/mp4">
+    </video>
+    <p>To create a cinematic, cut-scene-stlye camera tour, I implemented an automated two-segment cubic Bezier path. When the 'g' key is pressed, the camera follows the path shown above.
+       Each spline segment is defined by four control points in world-space coordinates and a parameter that specifies how many seconds traversal around the path should take.
+    </p>
+  </div>
+  <div class="square">
+    <h3>SkyBox</h3>
+    <video class="SkyBox" width="70%" autoplay muted loop playsinline>
+      <source src="Skybox.mp4" type="video/mp4">
+    </video>
+    <p>To create a realistic looking background for my scene, I added a skybox. With high-resolution 2k - 4k textures, the space environment looked seamless and visually stunning. Instead of mapping the images to a cube,
+       I used a sphere, which removes corner artifacts and allows it to rotate smoothly around the user. The six skybox textures were generated using a free online tool (see References).
+    </p>
+  </div>
+  <div class="square">
+    <h3>Particle System & Materials</h3>
+    <video class="Particle" width="70%" autoplay muted loop playsinline>
+      <source src="Particle_System.mp4" type="video/mp4">
+    </video>
+    <p>For the purplish crystals in my scene, I implemented a very simple particle system of 170 particles. Each particle is an instanced point sprite, texture-mapped with a .bmp to make them appear like little sparks.
+       Every particle receives a random velocity and a calculated acceleration to keep the motion fluid and believable. The lifespan of each particle ranges from around 4 to 9 seconds and continuously respawn. All materials 
+       are alien-themed such as the radiant purple shown above. This specific material can be changed to it's second form, which also removes its particles (activated by pressing 'm' key).
+    </p>
+  </div>
+  <div class="square">
+    <h3>Textured Meshes</h3>
+    <video class="Textured_Meshes" width="70%" autoplay muted loop playsinline>
+      <source src="Textured.mp4" type="video/mp4">
+    </video>
+    <p>All models are texture-mapped with 2k - 4k images, to make them look as realistic as possible without being too heavy on the cpu/gpu. The moon floor, planets, and spacecraft shown above are 
+       all textured. Several models within the scene use multiple textures, so the code iterates through each mesh's shapes and assigns the correct image to each one. The crystals, however, are not textured.
+    </p>
+  </div>
+  <div class="square">
+    <h3>Game Camera & Pitch/Yaw</h3>
+    <video class="Camera_PitchYaw" width="70%" autoplay muted loop playsinline>
+      <source src="Camera.mp4" type="video/mp4">
+    </video>
+    <p>To enable movement, I implemented a game camera that lets the user navigate the scene within an invisible boundary using the WASD keys and the mouse. The camera can pitch 80 degrees up or down for a total of 160 degrees, 
+       and can yaw 180 degrees to either side.
+    </p>
+  </div>
+
+    <div class="square">
+    <h3>Hierarchical Modeling</h3>
+    <video class="Hierarchical" width="70%" autoplay muted loop playsinline>
+      <source src="Hierarchical.mp4" type="video/mp4">
+    </video>
+    <p>In addition to the sourced meshes, the scene includes a hierarchically modeled figure built from a few different sized spheres. It's animated to do a large overhead wave, as if it was greeting something/someone out in space.
+    </p>
+  </div>
+</div>
+
+<p>
+<h1 style="margin-top: 35px;">References</h1>
+<p class="References">
+  Space Skybox Generator - <a href="https://tools.wwwtyro.net/space-3d/index.html#animationSpeed=1&fov=80&nebulae=true&pointStars=true&resolution=1024&seed=40md7yipru80&stars=true&sun=true">Available Here</a> <br>
+</p>
+<h3 style="font-style: italic; word-spacing: 8px;"> All Models listed below are licensed under Creative Commons Attribution - <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International</a></h3>
+
+<p class="References">
+  "Dyson sphere of Techno-Technos civilization" - <a href="https://skfb.ly/o7XGK">Download Here</a> <br>
+  "Moon - Gagarin crater" - <a href="https://skfb.ly/6CtVG">Download Here</a> <br>
+  "Strange Crystal" - <a href="https://skfb.ly/o6TL6">Download Here</a> <br>
+  "Black Hole" - <a href="https://skfb.ly/6yHBE">Download Here</a> <br>
+  "Sci-Fi Space Station: Rotor Nexus" - <a href="https://skfb.ly/oPZKM">Download Here</a> <br>
+  "NASA NEAR—Near Earth Asteroid Rendezvous" - <a href="https://skfb.ly/pwXus">Download Here</a> <br>
+  "PBR Dark Water Planet - 8K Textures" - <a href="https://skfb.ly/osOSL">Download Here</a> <br>
+  "Planet Nine" - <a href="https://skfb.ly/oTUoL">Download Here</a> <br>
+  "Heritage" - <a href="https://skfb.ly/CTnr">Download Here</a> <br>
+  "Pluton v1.1" - <a href="https://skfb.ly/6DuNY">Download Here</a> <br>
+</p>
+<p>Black cat sitting in box (very cute) - <a href="https://www.youtube.com/watch?v=B9b0Ia8P2dg">CLICK HERE</a></p>
+</body>
+</html>
